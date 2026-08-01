@@ -18,7 +18,10 @@
 			<tr
 				tabindex="0"
 				class="mod-table-row"
-				:class="{ deprecated: mod.isDeprecated }"
+				:class="{ 
+					deprecated: mod.isDeprecated,
+					broken: !mod.isDeprecated && mod.isBroken
+				}"
 				@click="emit('showModDetails', mod)"
 			>
 				<td v-if="groupBy"></td>
@@ -275,6 +278,10 @@ function collapseAllGroups() {
 
 .mod-table-row.deprecated {
 	background: rgba(var(--v-theme-error), var(--v-selected-opacity));
+}
+
+.mod-table-row.broken {
+	background: rgba(var(--v-theme-warning), var(--v-selected-opacity));
 }
 
 .mod-table-row .mod-name {
