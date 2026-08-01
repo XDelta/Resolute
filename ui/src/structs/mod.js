@@ -106,6 +106,14 @@ export class ResoluteMod {
 	}
 
 	/**
+	 * Whether this mod has been marked as broken (the {@link flags} property has 'broken' in it)
+	 * @type {boolean}
+	 */
+	get isBroken() {
+		return this.flags?.includes?.('broken') ?? false;
+	}
+
+	/**
 	 * Latest available version
 	 * @type {ModVersion}
 	 */
